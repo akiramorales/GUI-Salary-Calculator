@@ -2,9 +2,11 @@
  * @author Akira Morales
  * Period 6
  */
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -12,8 +14,6 @@ public class SalaryCalculator {
 
 	public static void main(String[] args)
 	{
-		//Key listener
-		//Format amount to 2 decimals
 		JFrame calc = new JFrame();
 		calc.setBounds(300, 300, 500, 300);
 		calc.setLayout(null);
@@ -35,18 +35,26 @@ public class SalaryCalculator {
 		hoursText.setBounds(100, 50, 100, 25);
 		calc.add(hoursText);
 		
+		JCheckBox fullTime = new JCheckBox("Full Time");
+		if(fullTime.isSelected() == true) 
+			{
+			hoursText.setText("40");
+			}
+		fullTime.setBounds(25, 100, 100, 25);
+		calc.add(fullTime);
+		
 		JButton calculate = new JButton("Calculate");
 		calculate.setBounds(25, 200, 100, 25);
 		calc.add(calculate);
-		calculate.addActionListener(new actionListener())
+		calculate.addActionListener(new ActionListener()
 		{
-			public void ActionPerformed(ActionEvent calculate)
+			public void actionPerformed(ActionEvent calculate)
 			{
 				rateLabel.setText("");
 				hoursLabel.setText("");
-				amountLabel.setText("Amount Salary: $" + Double.parseDouble(rateText.getText()) * Double.parseDouble(hoursText.getText()) * 52);
+				amountLabel.setText("Annual Salary: $" + Double.parseDouble(rateText.getText()) * Double.parseDouble(hoursText.getText()) * 52);
 			}
-		}
+		});
 		
 		calc.setVisible(true);
 		calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
