@@ -1,10 +1,10 @@
 /**
  * @author Akira Morales
  * Period 6
+ * Salary Calculator
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -50,8 +50,8 @@ public class SalaryCalculator {
 		{
 			public void actionPerformed(ActionEvent calculate)
 			{
-				rateLabel.setText("");
-				hoursLabel.setText("");
+				rateText.setText("");
+				hoursText.setText("");
 				amountLabel.setText("Annual Salary: $" + Double.parseDouble(rateText.getText()) * Double.parseDouble(hoursText.getText()) * 52);
 			}
 		});
